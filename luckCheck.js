@@ -12,7 +12,7 @@
 // str => num  / div by 2 and will check if the left and the right is equal  || if the length even then the middle num is skiped
 
 function luckCheck(str){
-    if(!str.length) return undefined
+    if(!str.length) throw Error
     let decimal = true;
     let numStr = str.split("").map(n=>{
         let tempNum = Number(n)
@@ -20,7 +20,7 @@ function luckCheck(str){
         else return tempNum;
     } ) 
 
-    if(!decimal) return undefined
+    if(!decimal) throw Error
     else if(str.length % 2 === 1){
         let leftSide=numStr.slice(0, ((numStr.length-1)/2)).reduce((acc,c) => acc + c, 0),
             rightSide=numStr.slice(((numStr.length+1)/2),numStr.length).reduce((acc,c)=> acc + c, 0)
