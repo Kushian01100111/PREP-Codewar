@@ -29,7 +29,10 @@ function isValidIP(strIP){
         }
     }
 
-    octets = octets.map(n=> Number(n))
+    octets = octets.map(n=>{ 
+        if(n === "") return NaN
+        else return Number(n)
+    })
     for(let i =0; i < octets.length; i++){
         if(octets[i] <= 255 && octets[i] >= 0) continue
         else{ 
@@ -56,7 +59,6 @@ function isValidIP(strIP){
 // console.log(isValidIP(' 1.2.3.4'       ), false);
 // console.log(isValidIP('1.2.3.4 '       ), false);
 // console.log(isValidIP('12.34.56.-7'    ), false);
-console.log(isValidIP('1.2.3.4\n'      ), false);
-console.log(isValidIP('\n1.2.3.4'      ), false);
+console.log(isValidIP("140.66..121"      ), false);
 
 
